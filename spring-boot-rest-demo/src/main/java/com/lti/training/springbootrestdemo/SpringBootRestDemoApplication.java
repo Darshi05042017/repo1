@@ -14,6 +14,6 @@ public class SpringBootRestDemoApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(SpringBootRestDemoApplication.class, args);
-	}
+	}    
 
 }

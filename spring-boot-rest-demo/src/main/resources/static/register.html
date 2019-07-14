@@ -10,8 +10,11 @@ $(function(){
 		evt.preventDefault();
 		var obj = {
 			name : $("#name").val(),
-			age: $("#age").val(),
-			email :$("#email").val() 
+			email :$("#email").val(),
+			dob :$("#dob").val(),
+			phNo :$("#phNo").val(),
+			pass :$("#pass").val(),
+			cnfpass :$("#cnfpass").val()
 		}
 		//var url="http://localhost:9090/register";
 		$.ajax({
@@ -31,9 +34,13 @@ $(function(){
 <body>
 <form id="frm">
 Enter name : <input id="name" /><br/>
-Enter age : <input id="age"/><br/>
 Enter email : <input id="email"/><br/>
-<button type="submit">Register</button>
+Enter dob : <input id="dob" /><br/>
+Enter phNo : <input id="phNo" /><br/>
+Enter pass : <input id="pass" /><br/>
+Enter cnfpass : <input id="cnfpass" /><br/>
+
+<button type="submit">REGISTER</button>
 </form>
 
 </body>

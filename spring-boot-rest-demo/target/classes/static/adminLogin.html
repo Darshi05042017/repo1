@@ -10,15 +10,12 @@ $(function(){
 		evt.preventDefault();
 		var obj = {
 			name : $("#name").val(),
-			email :$("#email").val(),
-			dob :$("#dob").val(),
-			phNo :$("#phNo").val(),
-			pass :$("#pass").val(),
-			cnfpass :$("#cnfpass").val()
+			pass :$("#password").val(),
+			
 		}
 		//var url="http://localhost:9090/register";
 		$.ajax({
-			url : '/register',//the url we wan tto hit
+			url : '/adminLogin',//the url we wan tto hit
 			method : 'POST', // Get or post or any other method of Http
 			data:JSON.stringify(obj), // what are we expecting back from the se
 			contentType :'application/json',
@@ -34,13 +31,10 @@ $(function(){
 <body>
 <form id="frm">
 Enter name : <input id="name" /><br/>
-Enter email : <input id="email"/><br/>
-Enter dob : <input id="dob" /><br/>
-Enter phNo : <input id="phNo" /><br/>
-Enter pass : <input id="pass" /><br/>
-Enter cnfpass : <input id="cnfpass" /><br/>
 
-<button type="submit">REGISTER</button>
+Enter pass : <input id="password" /><br/>
+
+<button type="submit">LOGIN</button>
 </form>
 
 </body>

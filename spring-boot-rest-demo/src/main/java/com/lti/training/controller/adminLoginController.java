@@ -6,22 +6,23 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.lti.training.DTO.AdminLoginDTO;
 import com.lti.training.DTO.StatusDTO;
-import com.lti.training.DTO.UserDTO;
-import com.lti.training.service.RegisterService;
+import com.lti.training.service.AdminLoginService;
 
 @RestController
-public class RegisterController {
+public class adminLoginController {
 
 
 	
 	@Autowired
-	private RegisterService registerService;
+	private AdminLoginService adminloginService;
 
-	@RequestMapping(path="/register", method=RequestMethod.POST)
-		public StatusDTO register(@RequestBody UserDTO userDTO) {
+	@RequestMapping(path="/adminLogin", method=RequestMethod.POST)
+		public StatusDTO register(@RequestBody AdminLoginDTO adminloginDTO) {
 		
-		    return registerService.save(userDTO);
+		
+		    return adminloginService.save(adminloginDTO);
 	   }
 	
 		}

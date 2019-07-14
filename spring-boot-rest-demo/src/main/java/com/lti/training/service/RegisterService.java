@@ -18,28 +18,29 @@ public class RegisterService {
 	
 	@Transactional
 	public StatusDTO save(UserDTO userDTO) {
-		//Copying the data from the dto to entity 
+		//Copying the data from the DTO to entity 
 		User user = new User();
 		
 		user.setName(userDTO.getName());
-		user.setAge(userDTO.getAge());
 		user.setEmail(userDTO.getEmail());
+		user.setDob(userDTO.getDob());
+		user.setPhNo(userDTO.getPhNo());
+		user.setPass(userDTO.getPass());
+		user.setCnfpass(userDTO.getCnfpass());
+		
+		
+		
 		
 		int id =registerDao.save(user);
 		
 		StatusDTO status = new StatusDTO();
 		status.setId(id);
-		status.setMessage("You are registered ");
+		status.setMessage("CONGRATULATIONS !! You Have Registered Successfully ");
 		return status;
 	
 	}
 	
-	@Transactional
-	public User search(String email) {
-		//Copying the data from the dto to entity 
-		User us =registerDao.search(email);
-		return us;
-	
+
 	}
 	
-}
+

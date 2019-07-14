@@ -6,17 +6,18 @@ import javax.persistence.Query;
 
 import org.springframework.stereotype.Repository;
 
-import com.lti.training.entity.User;
+import com.lti.training.entity.AdminLogin;
+
 
 //@Component
 @Repository
-public class RegisterDao {
+public class adminLoginDao {
 
 	@PersistenceContext
 	private EntityManager entitymanager;
 	
-	public int save(User user) {
-		User u=entitymanager.merge(user);
+	public int save(AdminLogin adminlogin) {
+		AdminLogin u=entitymanager.merge(adminlogin);
 		return u.getId();
 	}
 	
