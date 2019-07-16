@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Delete Flight </title>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js" ></script>
+<script>
+$(function(){
+	$("#deletefrm").submit(function(evt){
+		evt.preventDefault();
+		var obj = {
+			flightId : $("#flightId").val(),
+			
+		}
+		//var url="http://localhost:9090/register";
+		$.ajax({
+			url : "/deleteFlight",//the url we wan tto hit
+			method : "POST", // Get or post or any other method of Http
+			data: JSON.stringify(obj), // what are we expecting back from the se
+			contentType: "application/json",
+			success : function(response) {
+				alert(JSON.stringify(response));
+				
+			}
+		})
+	})
+})
+</script>
+</head>
+<body>
+<form id="deletefrm">
+Enter FlightId <input id="flightId"/><br/>
+<button type="submit"> Delete flight</button>
+
+</form>
+
+</body>
+</html>

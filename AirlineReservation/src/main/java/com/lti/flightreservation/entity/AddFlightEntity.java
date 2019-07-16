@@ -1,12 +1,14 @@
 package com.lti.flightreservation.entity;
 
+import java.sql.Date;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="AR_ADDFLIGHT")
+@Table(name="AR_ADDFLIGHT1")
 public class AddFlightEntity {
 	@Id
     @GeneratedValue
@@ -15,20 +17,31 @@ public class AddFlightEntity {
 	private String flightId;
 	private String companyName;
 	private int capacity;
-	private String source;
+	private String source1;
 	private String destination;
 	private String duration;
 	
-	private String departureDate;
+	private String departureTime;
 	private String arrivalTime;
 	private int economyClassSeats;
 	private double economyPrice;
 	private int bussinessClassSeats;
 	private double businessPrice;
+	private String departureDate;
 	private String stat;
+	
+	public String getDepartureDate() {
+		return departureDate;
+	}
+
+	public void setDepartureDate(String departureDate) {
+		this.departureDate = departureDate;
+	}
+
 	public int getId() {
 		return id;
 	}
+	
 	public void setId(int id) {
 		this.id = id;
 	}
@@ -50,11 +63,11 @@ public class AddFlightEntity {
 	public void setCapacity(int capacity) {
 		this.capacity = capacity;
 	}
-	public String getSource() {
-		return source;
+	public String getSource1() {
+		return source1;
 	}
-	public void setSource(String source) {
-		this.source = source;
+	public void setSource1(String source1) {
+		this.source1 = source1;
 	}
 	public String getDestination() {
 		return destination;
@@ -68,11 +81,11 @@ public class AddFlightEntity {
 	public void setDuration(String duration) {
 		this.duration = duration;
 	}
-	public String getDepartureDate() {
-		return departureDate;
+	public String getDepartureTime() {
+		return departureTime;
 	}
-	public void setDepartureDate(String departureDate) {
-		this.departureDate = departureDate;
+	public void setDepartureTime(String departureTime) {
+		this.departureTime = departureTime;
 	}
 	public String getArrivalTime() {
 		return arrivalTime;

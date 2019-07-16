@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Add New Flight</title>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js" ></script>
+<script>
+$(function(){
+	$("#addFlight").submit(function(evt){
+		evt.preventDefault();
+		var obj = {
+			flightId : $("#flightId").val(),
+			companyName : $("#companyname").val(),
+			capacity : $("#capacity").val(),
+			source : $("#source").val,
+			destination : $("#dest").val(),
+			duration: $("#duration").val(),
+			departureDate :$("#departureTime").val(),
+			arrivalTime : $("#arrivalTime").val(),
+			economyClassSeats : $("#economySeats").val(),
+			economyPrice : $("#economyPrice").val(),
+			bussinessClassSeats : $("#bussinessSeats").val(),
+			businessPrice : $("#businessPrice").val(),
+			stat :$("#stat").val() 
+		}
+		//var url="http://localhost:9090/register";
+		$.ajax({
+			url : "/addFlight",//the url we wan tto hit
+			method : "POST", // Get or post or any other method of Http
+			data: JSON.stringify(obj), // what are we expecting back from the se
+			contentType: "application/json",
+			success : function(response) {
+				alert(JSON.stringify(response));
+				
+			}
+		})
+	})
+})
+</script>
+</head>
+<body>
+<form id="addFlight">
+Enter Flight Id : <input type="text" id="flightId" /><br/>
+Enter Flight Company Name : <input type="text" id="companyname" /><br/>
+Enter Capacity : <input id="capacity"/><br/>
+Enter From : <input type="text" id="source"/><br/>
+Enter To : <input type="text" id="dest"/><br/>
+Enter Duration : <input type="text" id="duration"/><br/>
+Enter Departure Date and Time :<input type="datetime-local" id="departureTime"/><br/>
+Enter Arrival Date and Time :<input type="datetime-local" id="arrivalTime"/><br/>
+Class Economy Seats :<input id=economySeats"/><br/>
+Class Economy Price :<input  id=economyPrice"/><br/>
+Class Bussiness Seats :<input id=businessSeats"/><br/>
+Class Business Price :<input id=businessPrice"/><br/>
+Flight Status :<input type="text" id="stat"/><br/>
+<button type="submit">Add Flight</button>
+</form>
+</body>
+</html>

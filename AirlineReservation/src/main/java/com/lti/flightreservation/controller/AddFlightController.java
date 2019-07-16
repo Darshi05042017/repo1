@@ -22,6 +22,8 @@ public class AddFlightController {
 		public StatusFlightAdd register(@RequestBody AddFlightDTO addFlightDTO) {
 		
 		addFlightService.save(addFlightDTO);
+		System.out.println(addFlightDTO.getSource1());
+		System.out.println(addFlightDTO.getEconomyClassSeats());
 		    return status;
 	   }
 

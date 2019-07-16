@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Search Flight</title>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js" ></script>
+<script>
+$(function(){
+	$("#searchFlight").submit(function(evt){
+		evt.preventDefault();
+		var obj = {
+			source1 : $("#source").val(),
+			destination : $("#destination").val(),
+			departureDate: $("#flightDate").val(),
+		}
+		//var url="http://localhost:9090/register";
+		$.ajax({
+			url : "/searchFlight",//the url we wan tto hit
+			method : "POST", // Get or post or any other method of Http
+			data: JSON.stringify(obj), // what are we expecting back from the se
+			contentType: "application/json",
+			success : function(response) {
+				 alert(JSON.stringify(response));
+	                $.each(response, function(index, flight) {
+	                    var row = $("<tr/>");
+	                    var col1 = $("<td/>").text(flight.flightId);
+	                    var col2 = $("<td/>").text(flight.companyName);
+	                    var col3 = $("<td/>").text(flight.capacity);
+	                    var col4 = $("<td/>").text(flight.source1)
+	                    var col5 = $("<td/>").text(flight.destination);
+	                    var col6 = $("<td/>").text(flight.duration);
+	                    var col7 = $("<td/>").text(flight.departureTime);
+	                    var col8 = $("<td/>").text(flight.arrivalTime);
+	                    var col9 = $("<td/>").text(flight.economyClassSeats);
+	                    var col10 = $("<td/>").text(flight.economyPrice);
+	                    var col11 = $("<td/>").text(flight.bussinessClassSeats);
+	                    var col12= $("<td/>").text(flight.businessPrice);
+	                    var col13 = $("<td/>").text(flight.departureDate);
+	                    row.append(col1);
+	                    row.append(col2);
+	                    row.append(col3);
+	                    row.append(col4);
+	                    row.append(col5);
+	                    row.append(col6);
+	                    row.append(col7);
+	                    row.append(col8);
+	                    row.append(col9);
+	                    row.append(col10);
+	                    row.append(col11);
+	                    row.append(col12);
+	                    row.append(col13);
+	                    $("#tbl").append(row);
+	                })
+				
+			}
+		})
+	})
+})
+</script> 
+</head>
+<body>
+<form id="searchFlight">
+Flight Date : <input type="date" id="flightDate"/><br/>
+From : <input id="source"></br>
+To : <input id="destination"></br>
+<button type="">Search</button>
+</form>
+<table id="tbl" style="border : 1px solid black;">
+ 
+<tr style="border : 1px solid black;">
+<th>flightId</th>
+<th>companyName</th>
+<th>capacity</th>
+<th>source1</th>
+<th>destination</th>
+<th>duration</th>
+<th>departureTime</th>
+<th>arrivalTime</th>
+<th>economyClassSeats</th>
+<th>economyPrice</th>
+<th>bussinessClassSeats</th>
+<th>businessPrice</th>
+<th>departureDate</th>
+</tr>  
+</table>
+</body>
+</html>

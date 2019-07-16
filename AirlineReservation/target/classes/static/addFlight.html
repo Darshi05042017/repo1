@@ -12,15 +12,16 @@ $(function(){
 			flightId : $("#flightId").val(),
 			companyName : $("#companyname").val(),
 			capacity : $("#capacity").val(),
-			source : $("#source").val,
+			source1 : $("#sour").val(),
 			destination : $("#dest").val(),
 			duration: $("#duration").val(),
-			departureDate :$("#departureTime").val(),
+			departureTime :$("#departureTime").val(),
 			arrivalTime : $("#arrivalTime").val(),
 			economyClassSeats : $("#economySeats").val(),
 			economyPrice : $("#economyPrice").val(),
-			bussinessClassSeats : $("#bussinessSeats").val(),
+			bussinessClassSeats : $("#bussinessClassSeats").val(),
 			businessPrice : $("#businessPrice").val(),
+			departureDate: $("#flightDate").val(),
 			stat :$("#stat").val() 
 		}
 		//var url="http://localhost:9090/register";
@@ -43,15 +44,16 @@ $(function(){
 Enter Flight Id : <input type="text" id="flightId" /><br/>
 Enter Flight Company Name : <input type="text" id="companyname" /><br/>
 Enter Capacity : <input id="capacity"/><br/>
-Enter From : <input type="text" id="source"/><br/>
+Enter From : <input type="text" id="sour"/><br/>
 Enter To : <input type="text" id="dest"/><br/>
 Enter Duration : <input type="text" id="duration"/><br/>
-Enter Departure Date and Time :<input type="datetime-local" id="departureTime"/><br/>
-Enter Arrival Date and Time :<input type="datetime-local" id="arrivalTime"/><br/>
-Class Economy Seats :<input id=economySeats"/><br/>
-Class Economy Price :<input  id=economyPrice"/><br/>
-Class Bussiness Seats :<input id=businessSeats"/><br/>
-Class Business Price :<input id=businessPrice"/><br/>
+Flight Date : <input type="date" id="flightDate"/><br/>
+Enter Departure Time :<input  id="departureTime"/><br/>
+Enter Arrival Time :<input  id="arrivalTime"/><br/>
+Class Economy Seats :<input id="economySeats"/><br/>
+Class Economy Price :<input  id="economyPrice"/><br/>
+Class Bussiness Seats :<input id="bussinessClassSeats"/><br/>
+Class Business Price :<input id="businessPrice"/><br/>
 Flight Status :<input type="text" id="stat"/><br/>
 <button type="submit">Add Flight</button>
 </form>

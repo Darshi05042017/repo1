@@ -20,15 +20,16 @@ public class AddFlightService {
 		
 		
 			AddFlightEntity afe= new AddFlightEntity();
-			
+						
 			afe.setFlightId(addFlightDTO.getFlightId());
 			afe.setCompanyName(addFlightDTO.getCompanyName());
 			afe.setCapacity(addFlightDTO.getCapacity());
-			afe.setSource(addFlightDTO.getSource());
+			afe.setSource1(addFlightDTO.getSource1());
 			afe.setDestination(addFlightDTO.getDestination());
 			afe.setDuration(addFlightDTO.getDuration());
-			afe.setDepartureDate(addFlightDTO.getDepartureDate());
+			afe.setDepartureTime(addFlightDTO.getDepartureTime());
 			afe.setArrivalTime(addFlightDTO.getArrivalTime());
+			afe.setDepartureDate(addFlightDTO.getDepartureDate());
 			afe.setEconomyClassSeats(addFlightDTO.getEconomyClassSeats());
 			afe.setEconomyPrice(addFlightDTO.getEconomyPrice());
 			afe.setBussinessClassSeats(addFlightDTO.getBussinessClassSeats());
@@ -43,6 +44,20 @@ public class AddFlightService {
 			return status;
 		
 		}
+
+	@Transactional
+	public StatusFlightAdd delete(AddFlightDTO addFlightDTO) {
+		// Auto-generated method stub
+		AddFlightEntity afe= new AddFlightEntity();
+		afe.setFlightId(addFlightDTO.getFlightId());
+		afe.setStat("InActive");
+		String status2= addFlightDao.delete(afe);
+		StatusFlightAdd status = new StatusFlightAdd();
+		status.setStatus(status2);
+		return null;
+		
+	}
+	
 	} 
 
 
