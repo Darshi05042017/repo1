@@ -22,10 +22,6 @@ public class SearchFlightController {
 		public List<AddFlightEntity> register(@RequestBody AddFlightDTO addFlightDTO) {
 	
 		List<AddFlightEntity> list =searchFlightService.search(addFlightDTO);
-		for(AddFlightEntity fl :list) {
-			System.out.println(fl.getCompanyName());
-		}
-		    
 		return list;
 	   }
 

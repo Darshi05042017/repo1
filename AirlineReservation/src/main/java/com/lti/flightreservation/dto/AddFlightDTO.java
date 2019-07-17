@@ -17,8 +17,38 @@ public class AddFlightDTO {
 	private double businessPrice;
 	private String stat;
 	private String departureDate;
+	private String fclass;
+	private int noOfPassengers;
+	private int seatsAvailableInEconomy;
+	private int seatsAvailableInBusiness;
+	
+	public int getSeatsAvailableInEconomy() {
+		return seatsAvailableInEconomy;
+	}
+	public void setSeatsAvailableInEconomy(int seatsAvailableInEconomy) {
+		this.seatsAvailableInEconomy = seatsAvailableInEconomy;
+	}
+	public int getSeatsAvailableInBusiness() {
+		return seatsAvailableInBusiness;
+	}
+	public void setSeatsAvailableInBusiness(int seatsAvailableInBusiness) {
+		this.seatsAvailableInBusiness = seatsAvailableInBusiness;
+	}
+
 	public String getFlightId() {
 		return flightId;
+	}
+	public String getFclass() {
+		return fclass;
+	}
+	public void setFclass(String fclass) {
+		this.fclass = fclass;
+	}
+	public int getNoOfPassengers() {
+		return noOfPassengers;
+	}
+	public void setNoOfPassengers(int noOfPassengers) {
+		this.noOfPassengers = noOfPassengers;
 	}
 	public void setFlightId(String flightId) {
 		this.flightId = flightId;

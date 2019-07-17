@@ -14,8 +14,16 @@ public class SearchFlightService {
 	private SearchFlightDao searchFlightDao;
 
 	public List<AddFlightEntity> search(AddFlightDTO addFlightDTO) {
+		String st;
+		st=addFlightDTO.getFclass();
 		
 		AddFlightEntity afe= new AddFlightEntity();
+           if(st.equals("Business")) {
+			afe.setSeatsAvailableInBusiness(addFlightDTO.getNoOfPassengers());
+		   }
+           else {
+        	   afe.setSeatsAvailableInEconomy(addFlightDTO.getNoOfPassengers());  
+           }
 		afe.setSource1(addFlightDTO.getSource1());
 		afe.setDestination(addFlightDTO.getDestination());
 		afe.setDepartureDate(addFlightDTO.getDepartureDate());

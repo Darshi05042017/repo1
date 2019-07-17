@@ -16,15 +16,38 @@ public class SearchFlightDao {
 	
 	@PersistenceContext
 	private EntityManager entitymanager;
+	List<AddFlightEntity> resultList;
 
 	public List<AddFlightEntity> search(AddFlightEntity afe) {
-		Query query = entitymanager.createQuery("SELECT adf from AddFlightEntity adf where adf.departureDate=:dt and adf.source1=:sr and adf.destination=:dest and adf.stat=:st");
+		int i= afe.getSeatsAvailableInBusiness();
+		
+		if(i==0) {
+		Query query = entitymanager.createQuery("SELECT adf from AddFlightEntity adf where adf.departureDate=:dt"
+				+ " and adf.source1=:sr and adf.destination=:dest and adf.seatsAvailableInEconomy>= :sae and adf.stat=:st");
 	      query.setParameter("st", afe.getStat());
 	      query.setParameter("dt", afe.getDepartureDate());
 	      query.setParameter("sr", afe.getSource1());
 	      query.setParameter("dest", afe.getDestination());
+	      query.setParameter("sae", afe.getSeatsAvailableInEconomy());
 	      
-	      List<AddFlightEntity> resultList = query.getResultList();
+	      
+	      resultList = query.getResultList();
+		}
+		else {
+			Query query = entitymanager.createQuery("SELECT from AddFlightEntity adf where adf.departureDate=:dt"
+					+ " and adf.source1=:sr and adf.destination=:dest and adf.seatsAvailableInBusiness >= :sab and adf.stat=:st");
+		      query.setParameter("st", afe.getStat());
+		      query.setParameter("dt", afe.getDepartureDate());
+		      query.setParameter("sr", afe.getSource1());
+		      query.setParameter("dest", afe.getDestination());
+		      query.setParameter("sab", afe.getSeatsAvailableInBusiness());
+		      
+		      
+		      resultList = query.getResultList();
+			
+			
+					
+		}
 	     
 	     return resultList;
 		

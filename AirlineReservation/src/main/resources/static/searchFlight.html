@@ -12,6 +12,9 @@ $(function(){
 			source1 : $("#source").val(),
 			destination : $("#destination").val(),
 			departureDate: $("#flightDate").val(),
+			fclass : $("#mySelect").val(),
+			noOfPassengers : $("#passengers").val(),
+			
 		}
 		//var url="http://localhost:9090/register";
 		$.ajax({
@@ -36,6 +39,10 @@ $(function(){
 	                    var col11 = $("<td/>").text(flight.bussinessClassSeats);
 	                    var col12= $("<td/>").text(flight.businessPrice);
 	                    var col13 = $("<td/>").text(flight.departureDate);
+	                    var col14 = $("<td/>").text(flight.seatsAvailableInBusiness);
+	                    var col15 = $("<td/>").text(flight.seatsAvailableInEconomy);
+	                    var button = $("<button >Select Flight</button>");
+	                    button.attr("data-fid", flight.flightId);
 	                    row.append(col1);
 	                    row.append(col2);
 	                    row.append(col3);
@@ -49,6 +56,9 @@ $(function(){
 	                    row.append(col11);
 	                    row.append(col12);
 	                    row.append(col13);
+	                    row.append(col14);
+	                    row.append(col15);
+	                    row.append(button)
 	                    $("#tbl").append(row);
 	                })
 				
@@ -60,10 +70,15 @@ $(function(){
 </head>
 <body>
 <form id="searchFlight">
-Flight Date : <input type="date" id="flightDate"/><br/>
-From : <input id="source"></br>
-To : <input id="destination"></br>
-<button type="">Search</button>
+<div>Flight Date <br/> <input type="date" id="flightDate"/><br/></div>
+<div>From <br/> <input id="source"></br></div>
+<div>To <br/> <input id="destination"></br></div>
+<div>Class <br/>  <select class="custom-select" id="mySelect">
+<option id="eco" value="1">Economy</option>
+<option id="buss" value="2">Business</option>
+</select><br/></div>
+<div>No. of Passengers<br/><input id="passengers"> </div>
+<button type="submit">Search</button>
 </form>
 <table id="tbl" style="border : 1px solid black;">
  
@@ -81,6 +96,8 @@ To : <input id="destination"></br>
 <th>bussinessClassSeats</th>
 <th>businessPrice</th>
 <th>departureDate</th>
+<th>seatsAvailableInBusiness</th>
+<th>seatsAvailableInEconomy</th>
 </tr>  
 </table>
 </body>

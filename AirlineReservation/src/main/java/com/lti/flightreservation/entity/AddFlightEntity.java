@@ -28,8 +28,26 @@ public class AddFlightEntity {
 	private int bussinessClassSeats;
 	private double businessPrice;
 	private String departureDate;
+	private int seatsAvailableInEconomy;
+	private int seatsAvailableInBusiness;
 	private String stat;
 	
+	public int getSeatsAvailableInEconomy() {
+		return seatsAvailableInEconomy;
+	}
+
+	public void setSeatsAvailableInEconomy(int seatsAvailableInEconomy) {
+		this.seatsAvailableInEconomy = seatsAvailableInEconomy;
+	}
+
+	public int getSeatsAvailableInBusiness() {
+		return seatsAvailableInBusiness;
+	}
+
+	public void setSeatsAvailableInBusiness(int seatsAvailableInBusiness) {
+		this.seatsAvailableInBusiness = seatsAvailableInBusiness;
+	}
+
 	public String getDepartureDate() {
 		return departureDate;
 	}

@@ -34,7 +34,10 @@ public class AddFlightService {
 			afe.setEconomyPrice(addFlightDTO.getEconomyPrice());
 			afe.setBussinessClassSeats(addFlightDTO.getBussinessClassSeats());
 			afe.setBusinessPrice(addFlightDTO.getBusinessPrice());
+			afe.setSeatsAvailableInEconomy(addFlightDTO.getEconomyClassSeats());
+			afe.setSeatsAvailableInBusiness(addFlightDTO.getBussinessClassSeats());
 			afe.setStat(addFlightDTO.getStat());
+			
 			
 			
 			String status1= addFlightDao.save(afe);
