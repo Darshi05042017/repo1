@@ -18,9 +18,7 @@ public class DeleteFlightController {
 	private StatusFlightAdd status;
 
 	@RequestMapping(path="/deleteFlight", method=RequestMethod.POST)
-		public StatusFlightAdd register(@RequestBody AddFlightDTO addFlightDTO) {
-		
-		System.out.println(addFlightDTO.getFlightId());
+		public StatusFlightAdd delete(@RequestBody AddFlightDTO addFlightDTO) {
 		
 		addFlightService.delete(addFlightDTO);
 		return status;

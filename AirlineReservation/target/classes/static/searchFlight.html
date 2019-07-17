@@ -41,7 +41,7 @@ $(function(){
 	                    var col13 = $("<td/>").text(flight.departureDate);
 	                    var col14 = $("<td/>").text(flight.seatsAvailableInBusiness);
 	                    var col15 = $("<td/>").text(flight.seatsAvailableInEconomy);
-	                    var button = $("<button >Select Flight</button>");
+	                    var button = $("<button type="onclick">Select Flight</button>");
 	                    button.attr("data-fid", flight.flightId);
 	                    row.append(col1);
 	                    row.append(col2);
@@ -67,12 +67,23 @@ $(function(){
 	})
 })
 </script> 
+<script>$(function(){
+	$("#data-fid").onclick(function(evt){
+		evt.preventDefault();
+		var obj = {
+				
+			
+		}
+		})
+		})
+		</script>
+		
 </head>
 <body>
 <form id="searchFlight">
 <div>Flight Date <br/> <input type="date" id="flightDate"/><br/></div>
-<div>From <br/> <input id="source"></br></div>
-<div>To <br/> <input id="destination"></br></div>
+<div>From <br/> <input id="source"><br/></div>
+<div>To <br/> <input id="destination"><br/></div>
 <div>Class <br/>  <select class="custom-select" id="mySelect">
 <option id="eco" value="1">Economy</option>
 <option id="buss" value="2">Business</option>

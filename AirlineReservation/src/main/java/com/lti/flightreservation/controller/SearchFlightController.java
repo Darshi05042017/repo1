@@ -19,7 +19,7 @@ public class SearchFlightController {
 	private SearchFlightService searchFlightService;
 	
 	@RequestMapping(path="/searchFlight", method=RequestMethod.POST)
-		public List<AddFlightEntity> register(@RequestBody AddFlightDTO addFlightDTO) {
+		public List<AddFlightEntity> search(@RequestBody AddFlightDTO addFlightDTO) {
 	
 		List<AddFlightEntity> list =searchFlightService.search(addFlightDTO);
 		return list;

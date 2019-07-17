@@ -2,6 +2,8 @@ package com.lti.flightreservation.dto;
 
 import java.util.Date;
 
+import org.springframework.stereotype.Component;
+@Component
 public class AddFlightDTO {
 	private String flightId;
 	private String companyName;

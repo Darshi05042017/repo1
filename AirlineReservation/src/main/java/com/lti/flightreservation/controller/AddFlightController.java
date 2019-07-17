@@ -19,7 +19,7 @@ public class AddFlightController {
 	private StatusFlightAdd status;
 
 	@RequestMapping(path="/addFlight", method=RequestMethod.POST)
-		public StatusFlightAdd register(@RequestBody AddFlightDTO addFlightDTO) {
+		public StatusFlightAdd addNewFlight(@RequestBody AddFlightDTO addFlightDTO) {
 		
 		addFlightService.save(addFlightDTO);
 		System.out.println(addFlightDTO.getSource1());
