@@ -57,7 +57,7 @@ public class AddFlightService {
 		String status2= addFlightDao.delete(afe);
 		StatusFlightAdd status = new StatusFlightAdd();
 		status.setStatus(status2);
-		return null;
+		return status;
 		
 	}
 	

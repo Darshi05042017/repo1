@@ -20,7 +20,7 @@ public class DeleteFlightController {
 	@RequestMapping(path="/deleteFlight", method=RequestMethod.POST)
 		public StatusFlightAdd delete(@RequestBody AddFlightDTO addFlightDTO) {
 		
-		addFlightService.delete(addFlightDTO);
+		StatusFlightAdd status= addFlightService.delete(addFlightDTO);
 		return status;
 	   }
 

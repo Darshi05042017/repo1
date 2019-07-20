@@ -21,9 +21,8 @@ public class AddFlightController {
 	@RequestMapping(path="/addFlight", method=RequestMethod.POST)
 		public StatusFlightAdd addNewFlight(@RequestBody AddFlightDTO addFlightDTO) {
 		
-		addFlightService.save(addFlightDTO);
-		System.out.println(addFlightDTO.getSource1());
-		System.out.println(addFlightDTO.getEconomyClassSeats());
+		StatusFlightAdd status= addFlightService.save(addFlightDTO);
+		
 		    return status;
 	   }
 

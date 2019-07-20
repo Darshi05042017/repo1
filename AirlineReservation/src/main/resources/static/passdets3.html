@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Add Passenger Details</title>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js" ></script>
+<script>
+
+$(document).ready(function(){
+	var obj={
+			flightId : sessionStorage.getItem("flightId"),
+			fclass : sessionStorage.getItem("flightclass"),
+			
+	}
+	alert(obj.flightId);
+	$.ajax({
+		url:"/getAmount",
+		method:'POST',
+		data: JSON.stringify(obj),
+		contentType :'application/json',
+		success : function(response){
+			alert(JSON.stringify(response));
+			if(obj.fclass=="Economy")
+				{
+				sessionStorage.setItem("economyPrice",response.economyPrice);
+				}
+			else
+			sessionStorage.setItem("businessPrice",response.businessPrice);
+		}
+	})
+})
+</script>
+<script>
+$(function addDetails(){
+	var noOfPassengers = sessionStorage.getItem("noOfPass");
+	
+    for (i=0;i<noOfPassengers;i++){
+    	form = $("<p/>");
+    	
+    	form.append('<h3>Enter Details for Passenger '+(i+1)+'</h3>');
+    	form.append('<br/>Enter Gender : <input type="radio" name="gender'+i+'" value="male"> Male');
+    	form.append('<input type="radio" name="gender'+i+'" id="choicefemale" value="female"> Female');
+    	form.append('<input type="radio" name="gender'+i+'" id="choicemale"value="other"> Other<br>');
+    	form.append('Enter name : <input id="name'+i+'"class="name" /><br/>');
+    	form.append('Enter phNo : <input type="number" class="phoneno" id="phNo'+i+'" /><br/>');
+    	
+    	$('#frm').append(form);
+    }
+    
+    $('#frm').append('<button type="submit">Continue</button>');
+    
+    $("#frm").submit(function(evt) {
+    	evt.preventDefault();
+		var passengers = new Array();
+        
+		for(i=0; i<noOfPassengers; i++) {
+    		var passenger = {
+    				gender : $("input[name='gender"+i+"']:checked").val(), 
+    				name : $("#name"+i).val(),
+    				phNo : $("#phNo"+i).val(),
+    				userId : sessionStorage.getItem("userId"),
+    		}
+    		passengers[i] = passenger;
+    		
+    	}
+		
+		$.ajax({
+			url : '/passdets',
+			method : 'POST', 
+			data:JSON.stringify(passengers), 
+			contentType :'application/json',
+			success : function(response) {
+				var bookid = response.id;
+				sessionStorage.setItem("bookId",bookid);
+				
+			}
+
+		})
+		alert(JSON.stringify(passengers));
+    })
+})	
+	
+		
+</script>
+</head>
+<body>
+<form id="frm">
+
+</form>
+
+</body>
+</html>
