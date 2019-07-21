@@ -1,7 +1,8 @@
 package com.lti.flightreservation.entity;
 
-import java.util.Set;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -10,7 +11,9 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import org.hibernate.annotations.CascadeType;
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
+
 
 @Entity
 @Table(name="AR_TBL_REG")
@@ -23,17 +26,28 @@ public class Register {
 			@Column(unique = true)
 			private String email;
 			private String dob;
-			private long phNo;
+			private long phNo; 
 			private int pass;
 			private int cnfpass;
 			
-			@OneToMany(mappedBy="register",fetch=FetchType.EAGER)
-			private Set<PassAddDets> passDetails;
+			@OneToMany(mappedBy="register",fetch=FetchType.EAGER,cascade=CascadeType.ALL)
+			@Fetch(value = FetchMode.SUBSELECT)
+			private List<PassAddDets> passDetails;
 			
-			public Set<PassAddDets> getPassDetails() {
+			@OneToMany(mappedBy="registeruser",fetch=FetchType.EAGER,cascade=CascadeType.ALL)
+			@Fetch(value = FetchMode.SUBSELECT)
+			private List<BookDetailsEntity> bookDetails;
+			
+			public List<BookDetailsEntity> getBookDetails() {
+				return bookDetails;
+			}
+			public void setBookDetails(List<BookDetailsEntity> bookDetails) {
+				this.bookDetails = bookDetails;
+			}
+			public List<PassAddDets> getPassDetails() {
 				return passDetails;
 			}
-			public void setPassDetails(Set<PassAddDets> passDetails) {
+			public void setPassDetails(List<PassAddDets> passDetails) {
 				this.passDetails = passDetails;
 			}
 			@Override

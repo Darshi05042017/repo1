@@ -5,8 +5,6 @@ import java.util.Date;
 import org.springframework.stereotype.Component;
 @Component
 public class AddFlightDTO {
-	private int fid;
-	
 	private String flightId;
 	private String companyName;
 	private int capacity;
@@ -26,12 +24,7 @@ public class AddFlightDTO {
 	private int seatsAvailableInEconomy;
 	private int seatsAvailableInBusiness;
 	
-	public int getFid() {
-		return fid;
-	}
-	public void setFid(int fid) {
-		this.fid = fid;
-	}
+	
 	public int getSeatsAvailableInEconomy() {
 		return seatsAvailableInEconomy;
 	}

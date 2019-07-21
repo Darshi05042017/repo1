@@ -7,12 +7,12 @@
 <script>
 
 $(document).ready(function(){
+	
 	var obj={
 			flightId : sessionStorage.getItem("flightId"),
 			fclass : sessionStorage.getItem("flightclass"),
 			
 	}
-	alert(obj.flightId);
 	$.ajax({
 		url:"/getAmount",
 		method:'POST',
@@ -58,7 +58,7 @@ $(function addDetails(){
     				gender : $("input[name='gender"+i+"']:checked").val(), 
     				name : $("#name"+i).val(),
     				phNo : $("#phNo"+i).val(),
-    				userId : sessionStorage.getItem("userId"),
+    				userid : sessionStorage.getItem("userId"),
     		}
     		passengers[i] = passenger;
     		
@@ -70,9 +70,10 @@ $(function addDetails(){
 			data:JSON.stringify(passengers), 
 			contentType :'application/json',
 			success : function(response) {
-				var bookid = response.id;
+				var bookid = response.Bid;
+				alert("Passengers details added successfully");
 				sessionStorage.setItem("bookId",bookid);
-				
+				window.location.replace("payment.html");
 			}
 
 		})

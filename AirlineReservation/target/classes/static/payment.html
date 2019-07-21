@@ -3,16 +3,69 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Payment</title>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js" ></script>
+<script>
+$(document).ready(function(){
+	
+	var obj={
+			flightId : sessionStorage.getItem("flightId"),
+			fclass : sessionStorage.getItem("flightclass"),
+			userid : sessionStorage.getItem("userId"),
+			noOfPass : sessionStorage.getItem("noOfPass"),
+	}
+	$.ajax({
+		url:"/bookFlight",
+		method:'POST',
+		data: JSON.stringify(obj),
+		contentType :'application/json',
+		success : function(response){
+			alert(JSON.stringify(response));
+			var bookId=response.bookid;
+			var amount=response.amount;
+			sessionStorage.setItem("BookingId",bookId); 
+			sessionStorage.setItem("amount",amount);
+			
+		}
+	})
+})
+</script>
+<script>
+$(function(){
+	$("#payFrm").submit(function(evt){
+		evt.preventDefault();
+		var obj = {
+				bookid: sessionStorage.getItem("BookingId"),
+		        paymentAmount: sessionStorage.getItem("amount"),
+		        fclass : sessionStorage.getItem("flightclass"),
+		        payDate:new Date(),
+		        mode:$("#mySelect").val(),
+		        paymentStatus:("Payed"),
+		      }
+		$.ajax({
+			url : "/payamount",//the url we wan tto hit
+			method : "POST", // Get or post or any other method of Http
+			data: JSON.stringify(obj), // what are we expecting back from the se
+			contentType: "application/json",
+			uccess : function(response) {
+			alert(response);	
+			}
+			})
+		
+	})
+	
+})
+</script>
 </head>
 <body>
+<form id="payFrm">
+ <div>Pay the amount now <br/>  <select class="custom-select" id="mySelect">
+<option id="paypal" value="Paypal">Paypal</option>
+<option id="creditcard" value="CreditCard">CreditCard</option>
+<option id="debitcard" value="DebitCard">DebitCard</option>
+</select><br/></div>
 
-<form id="pfrm">
-
-      
-      
-
+<button type="submit">Pay Now</button>
 
 </form>
-
 </body>
 </html>

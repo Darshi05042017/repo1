@@ -1,20 +1,22 @@
 package com.lti.flightreservation.entity;
 
 import java.sql.Date;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
 @Table(name="AR_ADDFLIGHT1")
 public class AddFlightEntity {
 	@Id
-    @GeneratedValue
-	private int id;
+    private String flightId;
 	
-	private String flightId;
 	private String companyName;
 	private int capacity;
 	private String source1;
@@ -32,6 +34,17 @@ public class AddFlightEntity {
 	private int seatsAvailableInBusiness;
 	private String stat;
 	
+	@OneToMany(mappedBy="addFlightEntity",fetch=FetchType.EAGER,cascade=CascadeType.ALL)
+	private List<BookDetailsEntity> bookDetailsEnt;
+	
+	public List<BookDetailsEntity> getBookDetailsEnt() {
+		return bookDetailsEnt;
+	}
+
+	public void setBookDetailsEnt(List<BookDetailsEntity> bookDetailsEnt) {
+		this.bookDetailsEnt = bookDetailsEnt;
+	}
+
 	public int getSeatsAvailableInEconomy() {
 		return seatsAvailableInEconomy;
 	}
@@ -56,13 +69,7 @@ public class AddFlightEntity {
 		this.departureDate = departureDate;
 	}
 
-	public int getId() {
-		return id;
-	}
 	
-	public void setId(int id) {
-		this.id = id;
-	}
 	public String getFlightId() {
 		return flightId;
 	}

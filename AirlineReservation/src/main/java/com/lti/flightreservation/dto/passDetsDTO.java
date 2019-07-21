@@ -1,5 +1,6 @@
 package com.lti.flightreservation.dto;
 
+import com.lti.flightreservation.entity.Register;
 
 public class passDetsDTO {
 	

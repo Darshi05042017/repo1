@@ -7,6 +7,7 @@ import javax.persistence.Query;
 import org.springframework.stereotype.Repository;
 
 import com.lti.flightreservation.entity.PassAddDets;
+import com.lti.flightreservation.entity.Register;
 
 
 
@@ -20,7 +21,13 @@ public class passDetailsDao {
 	
 	public int save(PassAddDets passdets) {
 		PassAddDets u=entitymanager.merge(passdets);
-		return u.getId();
+		return u.getBid();
+	}
+
+	public  Register find(Class<Register> class1, int id) {
+		Register register = entitymanager.find(class1,id);
+		
+		return register;
 	}
 	
 	/*public User search(String email) {
