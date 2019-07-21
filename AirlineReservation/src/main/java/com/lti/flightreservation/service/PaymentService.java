@@ -20,7 +20,7 @@ public class PaymentService {
 	public PaymentEntity pay(PaymentDYTO paymenttDTO) {
 		
 		PaymentEntity payentity=new PaymentEntity();
-		int bookid= paymenttDTO.getBookid();
+		int bookid= Integer.parseInt(paymenttDTO.getBookid());
 		BookDetailsEntity bookingId = paydao.find(BookDetailsEntity.class,bookid);
 		System.out.println(bookingId.getBookid());
 		payentity.setBookentity(bookingId);

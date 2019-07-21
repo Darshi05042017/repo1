@@ -5,17 +5,17 @@ import org.springframework.stereotype.Component;
 @Component
 public class PaymentDYTO {
 	
-	private int bookid;
+	private String bookid;
 	private double paymentAmount;
 	private String fclass;
 	private String payDate;
 	private String mode;
 	private String paymentStatus;
 	
-	public int getBookid() {
+	public String getBookid() {
 		return bookid;
 	}
-	public void setBookid(int bookid) {
+	public void setBookid(String bookid) {
 		this.bookid = bookid;
 	}
 	public double getPaymentAmount() {
