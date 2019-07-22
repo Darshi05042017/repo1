@@ -4,6 +4,23 @@
 <meta charset="ISO-8859-1">
 <title>Add Passenger Details</title>
 <script src="https://code.jquery.com/jquery-3.4.1.min.js" ></script>
+<style>
+.container{
+margin:180 auto; 
+width:400px;
+padding:10px 10px;
+background:#f9f9f9;
+border:4px solid #333;
+background-color:transparent;
+}
+body
+{
+	background-image:  linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url('f10.png');
+	background-size:cover;
+	background-position:center;
+          
+}
+</style>
 <script>
 
 $(document).ready(function(){
@@ -19,7 +36,7 @@ $(document).ready(function(){
 		data: JSON.stringify(obj),
 		contentType :'application/json',
 		success : function(response){
-			alert(JSON.stringify(response));
+			
 			if(obj.fclass=="Economy")
 				{
 				sessionStorage.setItem("economyPrice",response.economyPrice);
@@ -76,7 +93,7 @@ $(function addDetails(){
 			}
 
 		})
-		alert(JSON.stringify(passengers));
+		
     })
 })	
 	
@@ -84,8 +101,25 @@ $(function addDetails(){
 </script>
 </head>
 <body>
+<div class="container">
 <form id="frm">
-
+<!--  
+<div class="gender" style="color:white">
+<label> Enter your Gender:<br></label>
+<input type="radio" name="gender" value="male"> Male
+<input type="radio" name="gender" value="female"> Female
+<input type="radio" name="gender" value="others"> Others
+</div>
+<br>
+<label style="color:white"> Enter your Name:</label>
+<input type="text" class="form-control" placeholder="name">
+<br>
+<label style="color:white"> Enter your Mobile No:</label>
+<input type="number" class="form-control" placeholder="mobile no">
+<br>       
+<button type="button" class="btn btn-primary flight">Continue</button>           
+</div>      
+-->
 </form>
 
 </body>

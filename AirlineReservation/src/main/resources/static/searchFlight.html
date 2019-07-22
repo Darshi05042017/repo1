@@ -1,14 +1,16 @@
-<!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1">
-<title>Search Flight</title>
-<script src="https://code.jquery.com/jquery-3.4.1.min.js" ></script>
-<script>
+  <title>FLIGHT TICKET BOOKING FORM</title>
+  <link rel="stylesheet" href="eee.css">
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js" ></script>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+   <script>
 $(function(){
-	$("#tbl").hide();
+	
 	$("#searchFlight").submit(function(evt){
 		evt.preventDefault();
+		$("#tbl").hide();
+		
 		var obj = {
 			source1 : $("#source").val(),
 			destination : $("#destination").val(),
@@ -64,7 +66,7 @@ $(function(){
 		evt.preventDefault();
 		  var fid=$(this).val();
 	      sessionStorage.setItem("flightId",fid);
-	       var userid=sessionStorage.getItem("c");
+	       var userid=sessionStorage.getItem("userId");
 	      	if (userid == 'undefined' || userid == null)
 	      		window.location.replace("userLogin.html");
 	      	
@@ -80,23 +82,87 @@ $(function(){
 })
 
 
-</script> 
-
-		
+</script>
 </head>
 <body>
-<form id="searchFlight">
-<div>Flight Date <br/> <input type="date" id="flightDate"/><br/></div>
-<div>From <br/> <input id="source"><br/></div>
-<div>To <br/> <input id="destination"><br/></div>
-<div>Class <br/>  <select class="custom-select" id="mySelect">
-<option id="eco" value="Economy">Economy</option>
-<option id="buss" value="Business">Business</option>
-</select><br/></div>
-<div>No. of Passengers<br/><input id="passengers"> </div>
-<button type="submit">Search</button>
-</form>
-<table id="tbl" style="border : 1px solid black;">
+  <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+ <a class="navbar-brand" href="#">Sky High</a>
+  
+
+  <ul class="navbar-nav">
+    <li class="nav-item">
+    
+    
+      <a class="nav-link" href="searchFlight.html">Home</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="userLogin.html">UserLogin</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="adminLogin.html">AdminLogin</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="register.html">Sign Up</a>
+    </li>
+    <li class="nav-item" style="float:right">
+      <a class="nav-link" href="aboutus.html">About Us</a>
+    </li>
+  </ul>
+</nav>
+  <div class="booking-form-box">
+    <div class="radio-btn">
+      
+      <input type="text" class="btn" name="check" id="radio-ow-trip">
+      <span><h4>ONE WAY</h4></span>
+
+    </div>
+    <form id="searchFlight">
+    <div class="booking-form">
+      <label>Flying from</label>
+      <input type="text" class="form-control" id="source" placeholder="City or Airport">
+      <label>Flying to</label>
+      <input type="text" class="form-control" id="destination" placeholder="City or Airport">
+
+      <div class="input-grp-container">
+        <div class="input-grp">
+          <label>Departing</label>
+          <input type="date" id="flightDate" class="form-control select-date">
+        </div>
+        
+       <!-- <div class="input-grp" id="input-grp-return">
+          <label>Returning</label>
+          <input type="date" class="form-control select-date">
+        </div>! -->
+        
+        </div>
+
+      <div class="input-grp-container">
+        <div class="input-grp">
+          <label>Number Of Travellers</label>
+          <input type="number" id="passengers" class="form-control" value="1">
+        </div>
+
+        <!--<div class="input-grp">
+          <label>Children</label>
+          <input type="number" class="form-control" value="0">
+        </div>!-->
+        
+      </div>
+
+      <div class="input-grp">
+        <label>Travel Class</label>
+        <select class="custom-select" id="mySelect">
+          <option value="Economy">Economy Class</option>
+          <option value="Business">Business Class</option>
+        </select>
+      </div>
+      <div class="input-grp input-submit">
+        <button type="submit" class="btn btn-primary flight">SHOW FLIGHTS</button>
+      </div>
+    </div>
+  </div></form>
+  
+    <table id="tbl" style="border : 1px solid black;display:none;">
  
 <tr style="border : 1px solid black;">
 <th>companyName</th>
@@ -111,5 +177,10 @@ $(function(){
 <th>seatsAvailableInEconomy</th>
 </tr>  
 </table>
+  
+
+<ul>
+  <li id ="contactus" ><a href="#contactUs" >contact with us : skyhigh@gmail.com</a></li>
+</ul>
 </body>
 </html>

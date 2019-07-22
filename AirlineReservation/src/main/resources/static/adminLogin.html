@@ -119,19 +119,11 @@ $(function(){
 			
 			success:function(response){
 				
-				alert(JSON.stringify(response));
-				
-				//var email=response.email;
-				//sessionStorage['response'] = response;
-				//sessionStorage['response'] = JSON.stringify(response);
 				
 				if(response.pass==pass)
-					
-					//window.location.href = "register.html";
-				
-				alert("Correct Password");
-				else
-					alert("Wrong password !!");
+									window.location.href = "adminfun.html";
+					else
+						alert("Wrong password !!");
 				
 				
 		}
@@ -156,7 +148,7 @@ $(function(){
             <input type="password" class="form-control" id="pass" name="pass" placeholder="Password" required="required">
         </div>        
         <div class="form-group">
-            <button type="submit" class="btn btn-primary btn-lg btn-block">Sign in</button>
+            <button onclick="window.location.href" href="adminfun.html" type="submit" class="btn btn-primary btn-lg btn-block">Sign in</button>
         </div>
 		<div class="clearfix">
             <label class="pull-left checkbox-inline"><input type="checkbox"> Remember me</label>

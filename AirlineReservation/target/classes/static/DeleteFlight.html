@@ -3,6 +3,62 @@
 <head>
 <title>Delete Flight </title>
 <script src="https://code.jquery.com/jquery-3.4.1.min.js" ></script>
+<link rel="stylesheet">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+<style type="text/css">
+	.formd {
+		margin: 0 auto;
+		width: 500px;
+		height:200px;
+        font-size:14pt;
+		color: azure;
+		padding-top: 100px;
+		font:bold;
+ 
+
+	}
+.subbutton {
+  background-color:transparent;
+  border: none;
+  color: white;
+  padding: 20px 100px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 20px;;
+  margin: 6px 2px;
+  cursor: pointer;
+  
+}
+.div1{
+text-align:center;
+}
+
+.booking-form-box
+{
+	/* max-width: 350px; */
+	width: 35%;
+	max-width: 350px;
+	border: 5px solid #ced4da;
+	margin: 2% auto 0;
+	padding: 9px;
+	border-radius: 1rem;
+
+}
+
+body
+{
+	background-image:  linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url('w1.jpg');
+	background-size:cover;
+	background-position:center;
+}
+.topnav-right {
+  float: right;
+}
+
+
+</style>
 <script>
 $(function(){
 	$("#deletefrm").submit(function(evt){
@@ -27,9 +83,22 @@ $(function(){
 </script>
 </head>
 <body>
-<form id="deletefrm">
-Enter FlightId <input id="flightId"/><br/>
-<button type="submit"> Delete flight</button>
+<div>
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+ 
+  <a class="navbar-brand" href="#">Sky High</a>
+  
+<div class="topnav-right">
+<a href="searchFlight.html">Log Out</a>
+     
+
+</div>
+</nav>
+</div>
+<form id="deletefrm" class="formd">
+Enter FlightId <input id="flightId" size="50"   style=font-size:18pt/><br/>
+<button type="submit" class="subbutton"> Delete flight</button>
+
 
 </form>
 

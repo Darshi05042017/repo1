@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 
 import com.lti.flightreservation.dto.PaymentDYTO;
+import com.lti.flightreservation.dto.PaymentDisplayDTO;
 import com.lti.flightreservation.entity.PaymentEntity;
 import com.lti.flightreservation.service.PaymentService;
 
@@ -19,11 +20,18 @@ public class PaymentController {
 	private PaymentService payService;
 	
 	@RequestMapping(path="/payamount", method=RequestMethod.POST)
-    public PaymentEntity payment(@RequestBody PaymentDYTO paymenttDTO) {
+    public PaymentDisplayDTO payment(@RequestBody PaymentDYTO paymenttDTO) {
 		
 		PaymentEntity paydetails= payService.pay(paymenttDTO);
-		
-		    return paydetails;
+		PaymentDisplayDTO pdis= new PaymentDisplayDTO();
+		pdis.setBookid(paydetails.getBookentity().getBookid());
+		pdis.setFclass(paydetails.getFlclass());
+		pdis.setNoOfPass(paydetails.getBookentity().getNoOfPass());
+		pdis.setPaydate(paydetails.getPayDate());
+		pdis.setPaymentid(paydetails.getPaymentId());
+		pdis.setPaymode(paydetails.getPaymode());
+		pdis.setPayamount(paydetails.getPaymentAmount());
+		return pdis;
 	   }
 
 }

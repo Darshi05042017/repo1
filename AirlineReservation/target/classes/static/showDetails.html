@@ -4,6 +4,28 @@
 <meta charset="ISO-8859-1">
 <title>Show Details</title>
 <script src="https://code.jquery.com/jquery-3.4.1.min.js" ></script>
+<style>
+.container{
+margin:180 auto; 
+width:400px;
+padding:10px 10px;
+background:#f9f9f9;
+border:4px solid #333;
+background-color:transparent;
+text-align:center;
+}
+
+
+body
+{
+	background-image:  linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url('f10.png');
+	background-size:cover;
+	background-position:center;
+	background-attachment: fixed;
+          
+}
+
+</style>
 <script>
 $(document).ready(function(){
 	var flightId = sessionStorage.getItem("flightId");
@@ -26,11 +48,11 @@ $(document).ready(function(){
 	var form1 = $("<p/>");
 	
 	form1.append('<h3>DetailsOf Flight Booking </h3>');
-	form1.append('<br/>Flight Id : <input type="Text"  value='+flightId+'>');
-	form1.append('<br/> Class : <input type="text" value='+fclass+'>');
-	form1.append('<br/> No Of Passengers:<input type="text" value='+noOfPass+'>');
-	form1.append('<br/> Price:<input type="text" value='+price+'>');
-	form1.append('<br/> Total Amount:<input type="text" value='+totalamount+'>');
+	form1.append('<br/><label>Flight Id :</label><br/> <input type="Text"  value='+flightId+' disabled>');
+	form1.append('<br/> <label>Class : </label><br/><input type="text" value='+fclass+' disabled>');
+	form1.append('<br/> <label>No Of Passengers:</label><br/><input type="text" value='+noOfPass+' disabled >');
+	form1.append('<br/> <label>Price:</label><br/><input type="text" value='+price+' disabled >');
+	form1.append('<br/> <label>Total Amount:</label><br/><input type="text" value='+totalamount+' disabled>');
 	
 	$('#frm').append(form1);
 	 
@@ -50,12 +72,28 @@ $(function(){
 </script>
 </head>
 <body>
+<div class="container">
 <form id="frm">
 
 </form>
 <form id="frm1">
 <button type="submit">Continue</button>
 </form>
-
+</div>
+<!-- 
+<div class="container">
+<form>
+<div class="gender" style="color:white">
+<label>Flight Id :</label>
+<br>
+<label style="color:white">Class:</label>
+<label style="color:white">Number of Passengers</label>
+<br>  
+<label>Price:</label>   
+<label>Total Amount:</label>  
+<button type="submit">Continue</button>
+</div> 
+</form>
+ -->
 </body>
 </html>

@@ -1,6 +1,7 @@
 package com.lti.flightreservation.entity;
 
 import java.util.List;
+import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -32,22 +33,22 @@ public class Register {
 			
 			@OneToMany(mappedBy="register",fetch=FetchType.EAGER,cascade=CascadeType.ALL)
 			@Fetch(value = FetchMode.SUBSELECT)
-			private List<PassAddDets> passDetails;
+			private Set<PassAddDets> passDetails;
 			
 			@OneToMany(mappedBy="registeruser",fetch=FetchType.EAGER,cascade=CascadeType.ALL)
-			@Fetch(value = FetchMode.SUBSELECT)
-			private List<BookDetailsEntity> bookDetails;
 			
-			public List<BookDetailsEntity> getBookDetails() {
+			private Set<BookDetailsEntity> bookDetails;
+			
+			public Set<BookDetailsEntity> getBookDetails() {
 				return bookDetails;
 			}
-			public void setBookDetails(List<BookDetailsEntity> bookDetails) {
+			public void setBookDetails(Set<BookDetailsEntity> bookDetails) {
 				this.bookDetails = bookDetails;
 			}
-			public List<PassAddDets> getPassDetails() {
+			public Set<PassAddDets> getPassDetails() {
 				return passDetails;
 			}
-			public void setPassDetails(List<PassAddDets> passDetails) {
+			public void setPassDetails(Set<PassAddDets> passDetails) {
 				this.passDetails = passDetails;
 			}
 			@Override

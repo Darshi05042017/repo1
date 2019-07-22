@@ -1,0 +1,186 @@
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+/* Change the link color to #111 (black) on hover */
+li a:hover {
+  background-color: #111;
+}
+
+#contactus{
+text-align:center;
+display:inline;padding:15px
+}
+
+
+
+
+body
+{
+	background-image:  linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url('air.jpg');
+	background-size:cover;
+	background-position:center;
+}
+.booking-form-box
+{
+	/* max-width: 350px; */
+	width: 35%;
+	max-width: 500px;
+	border: 1px solid #ced4da;
+	margin: 10% auto 0;
+	padding: 20px;
+	border-radius: 1rem;
+}
+.radio-btn
+{
+	margin: 0 0px;
+	text-align: center;
+	display: flex;
+	justify-content: center;
+}
+.radio-btn.btn
+{
+	margin:20px 10px 20px 0;
+	box-shadow:none;
+
+}
+.radio-btn.btn::after
+{
+
+	height:15px;
+	width:15px;
+	top:-2px;
+	left:-1px;
+	background-color: #fff;
+	position:relative;
+	display:inline-block;
+	border:3px solid #fff;
+	visibility:visible;
+	border-radius:50%;
+}
+.radio-btn .btn:checked::after
+{
+	content: ' ';
+	background-color: #000;
+	transition: 0.5s;
+}
+.radio-btn span
+{
+	color: #fff;
+	/* margin-right: 5px;
+	font-size: 12px; */
+	margin-right: 1rem;
+  font-size: 12px;
+  margin-left: 0.5rem;
+}
+.booking-form
+{
+	/* padding: 0 20px 0px; */
+}
+.booking-form label
+{
+	margin-bottom:5px;
+	margin-top:10px;
+	font-size:12px;
+	color: #fff;
+
+}
+input::placeholder
+{
+	color: #fff ;
+}
+.input-grp
+{
+	/* width: 151px;
+	display: inline-block; */
+
+}
+.form-control
+{
+	font-size: 12px;
+	border-radius: 0;
+	color: #fff;
+	background: transparent;
+	box-shadow: none;
+}
+.select-date::webkit-inner-spin-button,
+.select-date::webkit-outer-spin-button
+{
+	-webkit-appearence: none;
+	margin: 0;
+}
+
+.select-date::webkit-calender-picker-indicator
+{
+	background:transparent;
+	background:transparent;
+}
+.custom-select
+{
+	color: #fff;
+	font-size: 12px;
+	border: 1px solid #ced4da;
+	border-radius: 0;
+	background: transparent;
+	box-shadow: none;
+}
+
+.custom-select option
+{
+	color: #333;
+}
+.flight
+{
+	width: 100%;
+	padding: 9px 0;
+	font-size: 12px;
+	border: 1px solid #ced4da;
+	border-radius: 0;
+	background: transparent;
+	box-shadow: none;
+
+}
+.flight:hover
+{
+	background:#fff;
+	color: #000;
+	transition:0.5s;
+}
+
+.input-grp-container {
+	display: flex;
+  justify-content: space-between;
+}
+
+.input-grp-container .input-grp {
+	flex: 1;
+  margin-left: 1rem;
+}
+
+.input-grp-container .input-grp:first-child {
+	margin-left: 0;
+}
+
+.input-submit {
+	margin-top: 1rem;
+}
+
+.element-hidden {
+	display: none;
+}

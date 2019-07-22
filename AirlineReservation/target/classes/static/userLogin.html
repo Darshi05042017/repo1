@@ -113,16 +113,12 @@ $(function(){
 		
 			method:'GET',
 			
-			//data:JSON.stringify(obj),
-			//dataType : 'json',
-			//contentType :'application/json',
+			
 			
 			success:function(response){
 				var id=response.id;
 				sessionStorage.setItem("userId",id);
-				//var email=response.email;
-				//sessionStorage['response'] = response;
-				//sessionStorage['response'] = JSON.stringify(response);
+				
 				if(response==null)
 					{
 					alert("kindly register first");
@@ -136,7 +132,14 @@ $(function(){
 				{	//window.location.href = "register.html";
 				
 				alert("Login Successfully");
-				window.location.replace("passdets3.html");
+				var flightId=sessionStorage.getItem("flightId");
+				
+				if (flightId != 'undefined' || flightId != null || flightId!=0)
+		      		window.location.replace("userHome.html");
+		      	
+		      	else
+		      window.location.replace("passdets3.html");
+				
 				}
 				
 				else

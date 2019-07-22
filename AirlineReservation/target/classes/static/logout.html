@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+
+<script src="https://code.jquery.com/jquery-3.4.1.min.js" ></script>
+<script>
+$(document).ready(function(){
+    var userid=sessionStorage.getItem("userId");
+    if (userid == 'undefined' || userid == null)
+    	 window.location.replace("searchFlight.html");
+    else{
+    	sessionStorage.clear();
+      window.location.replace("searchFlight.html");
+    }
+    
+
+})
+
+	</script>
+</head>
+<body>
+
+</body>
+</html>
