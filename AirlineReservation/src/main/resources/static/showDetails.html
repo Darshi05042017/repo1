@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Show Details</title>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js" ></script>
+<script>
+$(document).ready(function(){
+	var flightId = sessionStorage.getItem("flightId");
+	var fclass = sessionStorage.getItem("flightclass");
+	var passengers= sessionStorage.getItem("passengers");
+	var bookid = sessionStorage.getItem("bookId");
+    var userid = sessionStorage.getItem("userId");
+    var noOfPass = sessionStorage.getItem("noOfPass");
+    var price;
+      if(fclass=="Economy")
+	    {
+	    price=sessionStorage.getItem("economyPrice");
+	    }
+       else
+         price=sessionStorage.getItem("businessPrice");
+        
+     var totalamount= price * noOfPass; 
+
+	
+	var form1 = $("<p/>");
+	
+	form1.append('<h3>DetailsOf Flight Booking </h3>');
+	form1.append('<br/>Flight Id : <input type="Text"  value='+flightId+'>');
+	form1.append('<br/> Class : <input type="text" value='+fclass+'>');
+	form1.append('<br/> No Of Passengers:<input type="text" value='+noOfPass+'>');
+	form1.append('<br/> Price:<input type="text" value='+price+'>');
+	form1.append('<br/> Total Amount:<input type="text" value='+totalamount+'>');
+	
+	$('#frm').append(form1);
+	 
+
+
+})
+</script>
+<script>
+$(function(){
+	
+	$("#frm1").submit(function(evt){
+		evt.preventDefault();
+		window.location.replace("payment.html");
+		
+	})
+})
+</script>
+</head>
+<body>
+<form id="frm">
+
+</form>
+<form id="frm1">
+<button type="submit">Continue</button>
+</form>
+
+</body>
+</html>

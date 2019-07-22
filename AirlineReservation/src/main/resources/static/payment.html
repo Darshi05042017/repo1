@@ -46,8 +46,8 @@ $(function(){
 			method : "POST", // Get or post or any other method of Http
 			data: JSON.stringify(obj), // what are we expecting back from the se
 			contentType: "application/json",
-			uccess : function(response) {
-			alert(response);	
+			success : function(response) {
+			alert(JSON.stringify(response));	
 			}
 			})
 		

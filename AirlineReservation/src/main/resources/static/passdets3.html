@@ -61,9 +61,8 @@ $(function addDetails(){
     				userid : sessionStorage.getItem("userId"),
     		}
     		passengers[i] = passenger;
-    		
     	}
-		
+		sessionStorage.setItem("passengers",passengers);
 		$.ajax({
 			url : '/passdets',
 			method : 'POST', 
@@ -73,7 +72,7 @@ $(function addDetails(){
 				var bookid = response.Bid;
 				alert("Passengers details added successfully");
 				sessionStorage.setItem("bookId",bookid);
-				window.location.replace("payment.html");
+				window.location.replace("showDetails.html");
 			}
 
 		})
