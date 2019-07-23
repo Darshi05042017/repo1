@@ -10,13 +10,37 @@ $(function(){
 	$("#searchFlight").submit(function(evt){
 		evt.preventDefault();
 		$("#tbl").hide();
-		
+		 var source=$("#source").val();
+		 var source2;
+		 if(isNaN(source))
+			 source2=source;
+		 else{
+			 alert("kindly input characters only");
+			 location.reload();
+		 }
+		 
+		 var destination=$("#destination").val();
+		 var destination1;
+		 if(isNaN(destination))
+			 destination1=destination;
+		 else{
+			 alert("kindly input characters only");
+			 location.reload();
+		 }
+		 
+		 var noOfPass=$("#passengers").val();
+		 var noOfpass;
+		 if(isNaN(noOfPass))
+			 alert("kindly input numeric value only only");
+		 else
+			 noOfpass=noOfPass;
+		 
 		var obj = {
-			source1 : $("#source").val(),
-			destination : $("#destination").val(),
+			source1 : source2,
+			destination :destination1,
 			departureDate: $("#flightDate").val(),
 			fclass : $("#mySelect").val(),
-			noOfPassengers : $("#passengers").val(),
+			noOfPassengers : noOfpass,
 			
 			
 		}
@@ -35,7 +59,8 @@ $(function(){
 	                    var row = $("<tr/>");
 	                    var col2 = $("<td/>").text(flight.companyName);
 	                    col2.attr("id",flight.companyName);
-	                    var source1 = $("<td/>").text(flight.source1)
+	                    var source1 = $("<td/>").text(flight.source1);
+	                    source1.attr("style","font-color:white");
 	                    var col5 = $("<td/>").text(flight.destination);
 	                    var col6 = $("<td/>").text(flight.duration);
 	                    var col7 = $("<td/>").text(flight.departureTime);
@@ -93,13 +118,13 @@ $(function(){
     <li class="nav-item">
     
     
-      <a class="nav-link" href="searchFlight.html">Home</a>
+      <a class="nav-link" href="searchFlight.html" >Home</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="userLogin.html">UserLogin</a>
+      <a class="nav-link" href="userLogin.html" >UserLogin</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="adminLogin.html">AdminLogin</a>
+      <a class="nav-link" href="adminLogin.html" >AdminLogin</a>
     </li>
     <li class="nav-item">
       <a class="nav-link" href="register.html">Sign Up</a>
@@ -119,14 +144,14 @@ $(function(){
     <form id="searchFlight">
     <div class="booking-form">
       <label>Flying from</label>
-      <input type="text" class="form-control" id="source" placeholder="City or Airport">
+      <input type="text" class="form-control" id="source" placeholder="City or Airport" required>
       <label>Flying to</label>
-      <input type="text" class="form-control" id="destination" placeholder="City or Airport">
+      <input type="text" class="form-control" id="destination" placeholder="City or Airport" required>
 
       <div class="input-grp-container">
         <div class="input-grp">
           <label>Departing</label>
-          <input type="date" id="flightDate" class="form-control select-date">
+          <input type="date" id="flightDate" class="form-control select-date" required>
         </div>
         
        <!-- <div class="input-grp" id="input-grp-return">
@@ -139,7 +164,7 @@ $(function(){
       <div class="input-grp-container">
         <div class="input-grp">
           <label>Number Of Travellers</label>
-          <input type="number" id="passengers" class="form-control" value="1">
+          <input type="number" id="passengers" class="form-control" value="1" required>
         </div>
 
         <!--<div class="input-grp">

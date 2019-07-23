@@ -134,7 +134,7 @@ $(function(){
 				alert("Login Successfully");
 				var flightId=sessionStorage.getItem("flightId");
 				
-				if (flightId != 'undefined' || flightId != null || flightId!=0)
+				if (flightId == 'undefined' || flightId == null || flightId==0)
 		      		window.location.replace("userHome.html");
 		      	
 		      	else

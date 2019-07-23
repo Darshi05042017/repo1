@@ -2,7 +2,7 @@ package com.lti.flightreservation.dao;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-
+import javax.persistence.Query;
 
 import org.springframework.stereotype.Repository;
 
@@ -30,5 +30,24 @@ public class BookFlightDao {
 		AddFlightEntity flight=entitymanager.find(class1,flightId);
 		return flight;
 	}
+	
+	public int deleteEconomySeats(String flightId, int seatsinEconomy) {
+		Query query = entitymanager.createQuery("UPDATE AddFlightEntity ad SET ad.seatsAvailableInEconomy = :st "
+	              + "WHERE ad.flightId = :id");
+		query.setParameter("id", flightId);
+	      query.setParameter("st", seatsinEconomy);
+	      int rowsUpdated = query.executeUpdate();
+		 return rowsUpdated;
+	}
+	public int deleteBusinessSeats(String flightId, int seatsinBusiness) {
+		Query query = entitymanager.createQuery("UPDATE AddFlightEntity ad SET ad.seatsAvailableInBusiness = :st "
+	              + "WHERE ad.flightId = :id");
+		query.setParameter("id", flightId);
+	      query.setParameter("st", seatsinBusiness);
+	      int rowsUpdated = query.executeUpdate();
+		 return rowsUpdated;
+		
+	}
+	
 
 }

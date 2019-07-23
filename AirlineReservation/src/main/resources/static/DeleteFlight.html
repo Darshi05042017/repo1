@@ -63,8 +63,13 @@ body
 $(function(){
 	$("#deletefrm").submit(function(evt){
 		evt.preventDefault();
+		var flightId=$("#flightId").val();
+		if(flightId==null ||flightId='undefined'){
+			alert("kindly input Some value");
+		}
 		var obj = {
 			flightId : $("#flightId").val(),
+			
 			
 		}
 		//var url="http://localhost:9090/register";
@@ -96,7 +101,7 @@ $(function(){
 </nav>
 </div>
 <form id="deletefrm" class="formd">
-Enter FlightId <input id="flightId" size="50"   style=font-size:18pt/><br/>
+Enter FlightId <input id="flightId" size="50"   style=font-size:18pt required/><br/>
 <button type="submit" class="subbutton"> Delete flight</button>
 
 

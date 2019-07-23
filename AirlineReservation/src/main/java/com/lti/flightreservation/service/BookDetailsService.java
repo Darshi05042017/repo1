@@ -39,6 +39,17 @@ public class BookDetailsService {
 			price=flight.getBusinessPrice();
 		
 		int noOfPassenger= bookDetailstDTO.getNoOfPass();
+		if(fclass.equals("Economy")){
+			int seatsinEconomy=flight.getSeatsAvailableInEconomy()-noOfPassenger;
+			
+			int row=bfd.deleteEconomySeats(flightId,seatsinEconomy);
+		}
+		else {
+			int seatsinBusiness=flight.getSeatsAvailableInBusiness()-noOfPassenger;
+			int row1=bfd.deleteBusinessSeats(flightId,seatsinBusiness);
+		}
+		
+		
 		bde.setAmount(price * noOfPassenger);
 		bde.setNoOfPass(noOfPassenger);
 		BookDetailsEntity bdentity=bfd.addBookDetails(bde);

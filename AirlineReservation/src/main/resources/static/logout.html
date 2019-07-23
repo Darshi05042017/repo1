@@ -10,6 +10,7 @@ $(document).ready(function(){
     if (userid == 'undefined' || userid == null)
     	 window.location.replace("searchFlight.html");
     else{
+    	sessionStorage.removeItem("userId");
     	sessionStorage.clear();
       window.location.replace("searchFlight.html");
     }

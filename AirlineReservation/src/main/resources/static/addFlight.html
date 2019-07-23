@@ -1,8 +1,43 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-<meta charset="ISO-8859-1">
-<title>Add New Flight</title>
+    <!-- Required meta tags-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Colorlib Templates">
+    <meta name="author" content="Colorlib">
+    <meta name="keywords" content="Colorlib Templates">
+    <link rel="stylesheet" href="eee.css">
+
+    <!-- Title Page-->
+    <title>Add Flight</title>
+
+    <!-- Icons font CSS-->
+    <link href="vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
+    <link href="vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all">
+    <!-- Font special for pages-->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i" rel="stylesheet">
+
+    <!-- Vendor CSS-->
+    <link href="vendor/select2/select2.min.css" rel="stylesheet" media="all">
+    <link href="vendor/datepicker/daterangepicker.css" rel="stylesheet" media="all">
+
+    <!-- Main CSS-->
+    <link href="main.css" rel="stylesheet" media="all">
+
+<!-- Jquery JS-->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <!-- Vendor JS-->
+    <script src="vendor/select2/select2.min.js"></script>
+    <script src="vendor/datepicker/moment.min.js"></script>
+    <script src="vendor/datepicker/daterangepicker.js"></script>
+
+    <!-- Main JS-->
+    <script src="js/global.js"></script>
+
+
+
 <script src="https://code.jquery.com/jquery-3.4.1.min.js" ></script>
 <script>
 $(function(){
@@ -26,12 +61,13 @@ $(function(){
 		}
 		//var url="http://localhost:9090/register";
 		$.ajax({
-			url : "/addFlight",//the url we wan tto hit
-			method : "POST", // Get or post or any other method of Http
+			url : "/addFlight",
+			method : "POST", 
 			data: JSON.stringify(obj), // what are we expecting back from the se
 			contentType: "application/json",
 			success : function(response) {
-				alert(JSON.stringify(response));
+				alert("Flight added successfully ");
+				location.reload();
 				
 			}
 		})
@@ -39,23 +75,124 @@ $(function(){
 })
 </script>
 </head>
+</head>
+
 <body>
-<form id="addFlight">
-Enter Flight Id : <input type="text" id="flightId" /><br/>
-Enter Flight Company Name : <input type="text" id="companyname" /><br/>
-Enter Capacity : <input id="capacity"/><br/>
-Enter From : <input type="text" id="sour"/><br/>
-Enter To : <input type="text" id="dest"/><br/>
-Enter Duration : <input type="text" id="duration"/><br/>
-Flight Date : <input type="date" id="flightDate"/><br/>
-Enter Departure Time :<input  id="departureTime"/><br/>
-Enter Arrival Time :<input  id="arrivalTime"/><br/>
-Class Economy Seats :<input id="economySeats"/><br/>
-Class Economy Price :<input  id="economyPrice"/><br/>
-Class Bussiness Seats :<input id="bussinessClassSeats"/><br/>
-Class Business Price :<input id="businessPrice"/><br/>
-Flight Status :<input type="text" id="stat"/><br/>
-<button type="submit">Add Flight</button>
-</form>
+
+ <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+ 
+
+  <ul class="navbar-nav">
+    <li class="nav-item">
+    
+    
+      <a class="navbar-brand" href="#">Sky High</a>
+    </li>
+    <li class="nav-item">
+    
+    
+      <a class="nav-link" href="adminfun.html" >Home</a>
+    </li>
+    
+  </ul>
+</nav>
+    <div class="page-wrapper bg-red p-t-180 p-b-100 font-robo">
+        <div class="wrapper wrapper--w960">
+            <div class="card card-2">
+                <div class="card-heading"></div>
+                <div class="card-body">
+                    <h2 class="title">Add Flight</h2>
+                    <form id="addFlight" method="POST">
+                        <div class="input-group">
+                            <input class="input--style-2" type="text" placeholder="Flight Id" id="flightId" name="fid" required> 
+                        </div>
+                        <div class="row row-space">
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <input class="input--style-2" type="text" placeholder="Flight Company" name="fcompany"id="companyname" required> 
+                                   
+                                </div>
+                            </div>
+                            <div class="col-2">
+                                <div class="input-group">
+                                 <input class="input--style-2" type="text" placeholder="Capacity" id="capacity" name="fcapacity" required>   
+                            </div>
+                        </div>
+                            <div class="col-2">
+                                <div class="input-group">
+                                 <input class="input--style-2" type="text" placeholder="Enter From" id="sour" name="from" required>   
+                            </div>
+                        </div>
+ 				<div class="col-2">
+                                <div class="input-group">
+                                 <input class="input--style-2" type="text" id="dest" placeholder="Enter To" name="to" required>   
+                            </div>
+                        </div>
+				<div class="col-2">
+                                <div class="input-group">
+                                 <input class="input--style-2" type="text" id="duration" placeholder="Enter Duration" name="duration" required>   
+                            </div>
+                        </div>
+				<div class="col-2">
+                                <div class="input-group">
+                                 <input class="input--style-2 js-datepicker" type="date" placeholder="Flight Date" id="flightDate"name="fdate" required="required">
+                                    
+                            </div>
+                        </div>
+			
+					<div class="col-2">
+                                <div class="input-group">
+                                 <input class="input--style-2" type="text" placeholder="Departure Time" name="departure"id="departureTime" required>   
+                            </div>
+                        </div>
+				<div class="col-2">
+                                <div class="input-group">
+                                 <input class="input--style-2" type="text" placeholder="Arrival Time" name="arrival"id="arrivalTime" required>   
+                            </div>
+                        </div>
+				<div class="col-2">
+                                <div class="input-group">
+                                 <input class="input--style-2" type="text" placeholder="Economy Seats" name="eseats" id="economySeats" required>   
+                            </div>
+                        </div>
+				<div class="col-2">
+                                <div class="input-group">
+                                 <input class="input--style-2" type="text" placeholder="Economy Price" name="eprice"id="economyPrice" required>   
+                            </div>
+                        </div>
+					<div class="col-2">
+                                <div class="input-group">
+                                 <input class="input--style-2" type="text" placeholder="Business Seats" name="bseats" id="bussinessClassSeats" required>   
+                            </div>
+                        </div>
+					<div class="col-2">
+                                <div class="input-group">
+                                 <input class="input--style-2" type="text" placeholder="Business Price" name="bprice"id="businessPrice" required>   
+                            </div>
+                        </div>
+				<div class="col-2">
+                                <div class="input-group">
+                                 <input class="input--style-2" type="text" placeholder="Flight Status" name="fstatus"id="stat" required>   
+                            </div>
+                        </div>
+				<div class="p-t-30">
+                            <button class="btn btn--radius btn--green" type="submit">Add Flight</button>
+                        </div>
+                    </form>
+			</div>
+            </div>
+        </div>
+    </div>
 </body>
+
 </html>
+
+
+
+
+
+
+
+
+
+
