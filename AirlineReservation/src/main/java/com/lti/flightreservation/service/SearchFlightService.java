@@ -12,6 +12,7 @@ import com.lti.flightreservation.entity.AddFlightEntity;
 public class SearchFlightService {
 	@Autowired 
 	private SearchFlightDao searchFlightDao;
+	
 
 	public List<AddFlightEntity> search(AddFlightDTO addFlightDTO) {
 		String st;

@@ -26,7 +26,7 @@ public class AddFlightDao {
 		query.setParameter("st", afe.getStat());
 	      query.setParameter("id", afe.getFlightId());
 	      int rowsUpdated = query.executeUpdate();
-	      	      
-		return "Flight is Deleted";
+	            
+		   return "Flight is Deleted";
 	}
 }

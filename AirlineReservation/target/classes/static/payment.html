@@ -57,7 +57,7 @@ $(document).ready(function(){
 		data: JSON.stringify(obj),
 		contentType :'application/json',
 		success : function(response){
-			alert(JSON.stringify(response));
+			
 			var bookId=response.bookid;
 			var amount=response.amount;
 			sessionStorage.setItem("BookingId",bookId); 

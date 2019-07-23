@@ -101,12 +101,17 @@ $(function(){
 	$("#loginForm").submit(function(evt){
 		
 		evt.preventDefault();
+		var passd=$("#pass").val();
+		 var npass;
+		 if(isNaN(passd))
+			 alert("kindly input numeric value only only");
+		 else
+			 npass=passd;
 		 		
 		 var email = $("#email").val();
-		 var pass = $("#pass").val();
+		 var pass =npass; 
 		
-		//var url = '/userLogin?email='+email //+'&password='+password;
-					//alert(obj.email);
+		
 		$.ajax({
 			
 			url:'/userLogin?email='+email, //+'&password='+password;
@@ -157,9 +162,9 @@ $(function(){
 <body>
 <div class="login-form">
     <form id="loginForm">
-		<!--  <div class="avatar">
+	  <div class="avatar">
 			<img src="avatar.png" alt="Avatar">
-		</div>-->
+		</div>
         <h2 class="text-center">User Login</h2>   
         <div class="form-group">
         	<input type="email" class="form-control" id="email" name="email" placeholder="email" required="required">
@@ -170,10 +175,7 @@ $(function(){
         <div class="form-group">
             <button type="submit" class="btn btn-primary btn-lg btn-block">Sign in</button>
         </div>
-		<div class="clearfix">
-            <label class="pull-left checkbox-inline"><input type="checkbox"> Remember me</label>
-            <a href="#" class="pull-right">Forgot Password?</a>
-        </div>
+		
     </form>
     <p class="text-center small">Don't have an account? <a href="register.html">Sign up here!</a></p>
 </div>
